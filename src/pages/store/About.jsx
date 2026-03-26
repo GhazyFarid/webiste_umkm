@@ -32,12 +32,12 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-display font-bold mb-8 border-l-8 border-secondary pl-6">Cerita Kami</h2>
+              <h2 className="text-3xl font-display font-bold mb-8 border-l-8 border-secondary pl-6">Dedikasi Kami</h2>
               <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
                 <p>{aboutContent}</p>
                 <p>
-                  Berawal dari semangat untuk menghadirkan produk berkualitas dengan harga yang kompetitif, 
-                  kami terus bertumbuh dan berinovasi untuk memenuhi kebutuhan pasar yang dinamis.
+                  Kami memahami bahwa kesehatan adalah aset terpenting. Oleh karena itu, kami hadir untuk memberikan 
+                  akses mudah terhadap produk kesehatan asli, berkualitas, dan terpercaya bagi Anda dan keluarga.
                 </p>
               </div>
             </motion.div>
@@ -48,8 +48,8 @@ const About = () => {
               className="relative"
             >
               <img 
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" 
-                alt="Business Profile" 
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800" 
+                alt="Pharmacy Profile" 
                 className="rounded-[40px] shadow-2xl relative z-10"
               />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary rounded-3xl -z-0" />
@@ -59,10 +59,10 @@ const About = () => {
           {/* Values */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: <Package className="text-primary" />, title: 'Produk Pilihan', desc: 'Hanya menghadirkan kualitas terbaik.' },
-              { icon: <Award className="text-secondary" />, title: 'Kualitas Premium', desc: 'Standar tinggi untuk setiap produk.' },
-              { icon: <Sparkles className="text-accent" />, title: 'Inovasi', desc: 'Terus update dengan tren terbaru.' },
-              { icon: <Heart className="text-red-500" />, title: 'Pelayanan Hati', desc: 'Ramah dan responsif kepada pelanggan.' }
+              { icon: <Package className="text-primary" />, title: 'Obat Terjamin', desc: 'Produk 100% asli dan memiliki izin resmi.' },
+              { icon: <Award className="text-secondary" />, title: 'Resmi & Aman', desc: 'Standar penyimpanan obat sesuai protokol kesehatan.' },
+              { icon: <Sparkles className="text-accent" />, title: 'Pelayanan Cepat', desc: 'Proses pesanan kilat via WhatsApp.' },
+              { icon: <Heart className="text-red-500" />, title: 'Konsultasi Gratis', desc: 'Tanya obat dan dosis kepada tim profesional kami.' }
             ].map((v, i) => (
               <motion.div
                 key={i}

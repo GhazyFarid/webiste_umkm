@@ -1,26 +1,47 @@
-// Mock data for initial development
 const MOCK_PRODUCTS = [
   {
     id: '1',
-    name: 'Produk Unggulan A',
-    price: 150000,
-    description: 'Deskripsi lengkap produk A yang sangat menarik.',
-    category: 'Elektronik',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500',
+    name: 'Paracetamol 500mg',
+    price: 15000,
+    description: 'Membantu meredakan nyeri ringan sampai sedang, dan menurunkan demam.',
+    category: 'Obat Bebas',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500',
     featured: true,
     status: 'publish',
-    stock: 10
+    stock: 100
   },
   {
     id: '2',
-    name: 'Produk B',
-    price: 75000,
-    description: 'Deskripsi singkat produk B.',
-    category: 'Fashion',
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500',
+    name: 'Vitamin C 1000mg',
+    price: 45000,
+    description: 'Suplemen untuk menjaga daya tahan tubuh dan membantu pemulihan.',
+    category: 'Suplemen & Vitamin',
+    image: 'https://images.unsplash.com/photo-1616671285410-062e08e614bc?w=500',
+    featured: true,
+    status: 'publish',
+    stock: 50
+  },
+  {
+    id: '3',
+    name: 'Amoxicillin 500mg',
+    price: 35000,
+    description: 'Antibiotik untuk membantu mengobati berbagai jenis infeksi bakteri. Memerlukan resep dokter.',
+    category: 'Obat Resep',
+    image: 'https://images.unsplash.com/photo-1471864190281-ad5fe9bb0724?w=500',
     featured: false,
     status: 'publish',
-    stock: 5
+    stock: 30
+  },
+  {
+    id: '4',
+    name: 'Termometer Digital',
+    price: 85000,
+    description: 'Termometer digital akurat untuk mengukur suhu tubuh dengan cepat.',
+    category: 'Alat Kesehatan',
+    image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=500',
+    featured: false,
+    status: 'publish',
+    stock: 20
   }
 ];
 

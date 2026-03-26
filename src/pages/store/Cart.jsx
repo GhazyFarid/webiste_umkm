@@ -20,7 +20,7 @@ const Cart = () => {
   const handleCheckout = (e) => {
     e.preventDefault();
     if (cartItems.length === 0) return;
-    
+
     if (!customer.name || !customer.phone || !customer.address) {
       alert('Silakan lengkapi detail pengiriman terlebih dahulu.');
       return;
@@ -71,16 +71,16 @@ const Cart = () => {
                       <h3 className="text-lg font-bold font-display">{item.name}</h3>
                       <p className="text-primary font-bold">Rp {item.price.toLocaleString('id-ID')}</p>
                     </div>
-                    
+
                     <div className="flex items-center gap-4 bg-slate-50 rounded-xl p-1 px-4">
-                      <button 
+                      <button
                         onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))}
                         className="p-1 hover:text-primary"
                       >
                         <Minus size={18} />
                       </button>
                       <span className="w-8 text-center font-bold">{item.quantity}</span>
-                      <button 
+                      <button
                         onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))}
                         className="p-1 hover:text-primary"
                       >
@@ -90,7 +90,7 @@ const Cart = () => {
 
                     <div className="text-right items-end">
                       <p className="font-bold text-slate-900 mb-2">Rp {(item.price * item.quantity).toLocaleString('id-ID')}</p>
-                      <button 
+                      <button
                         onClick={() => dispatch(removeFromCart(item.id))}
                         className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
                       >
@@ -111,34 +111,34 @@ const Cart = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-slate-600 mb-2 uppercase tracking-wide">Nama Lengkap</label>
-                  <input 
-                    type="text" 
-                    placeholder="Contoh: Muhammad Ghazy"
+                  <input
+                    type="text"
+                    placeholder="Contoh: Anonim"
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-primary focus:bg-white outline-none"
                     value={customer.name}
-                    onChange={(e) => setCustomer({...customer, name: e.target.value})}
+                    onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
                     required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-slate-600 mb-2 uppercase tracking-wide">No. WhatsApp</label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     placeholder="Contoh: 0812..."
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-primary focus:bg-white outline-none"
                     value={customer.phone}
-                    onChange={(e) => setCustomer({...customer, phone: e.target.value})}
+                    onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
                     required
                   />
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-sm font-bold text-slate-600 mb-2 uppercase tracking-wide">Alamat Pengiriman</label>
-                  <textarea 
+                  <textarea
                     placeholder="Tuliskan alamat lengkap pengiriman..."
                     rows={3}
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-primary focus:bg-white outline-none resize-none"
                     value={customer.address}
-                    onChange={(e) => setCustomer({...customer, address: e.target.value})}
+                    onChange={(e) => setCustomer({ ...customer, address: e.target.value })}
                     required
                   />
                 </div>
@@ -150,7 +150,7 @@ const Cart = () => {
           <aside className="lg:col-span-1">
             <div className="bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 p-8 sticky top-24">
               <h3 className="text-xl font-display font-bold mb-8">Ringkasan Pesanan</h3>
-              
+
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between text-slate-500">
                   <span>Subtotal</span>
@@ -166,13 +166,13 @@ const Cart = () => {
                 </div>
               </div>
 
-              <button 
+              <button
                 onClick={handleCheckout}
                 className="w-full py-5 bg-primary text-white font-bold rounded-2xl hover:bg-primary-dark transition-all transform hover:scale-[1.02] shadow-xl shadow-primary/20 flex items-center justify-center gap-3 text-lg"
               >
                 Checkout ke WhatsApp <ArrowRight size={22} />
               </button>
-              
+
               <p className="mt-6 text-[10px] text-center text-slate-400 uppercase tracking-widest font-medium">
                 Pesan anda akan diformat otomatis dan dikirim langsung ke WhatsApp seller.
               </p>

@@ -1,21 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  storeName: 'Nama Toko Anda',
+  storeName: 'Apotik Sehat Jaya',
   whatsappNumber: '6281234567890',
-  address: 'Alamat lengkap toko Anda di sini.',
+  address: 'Jl. Kesehatan No. 123, Kota Semarang, Jawa Tengah.',
   bankAccount: {
     bankName: 'Bank BCA',
     accountNumber: '1234567890',
-    accountHolder: 'Pemilik Toko'
+    accountHolder: 'Apotik Sehat Jaya'
   },
   banners: [
-    { id: '1', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200', title: 'Promo Spesial Minggu Ini!' }
+    { id: '1', image: 'https://images.unsplash.com/photo-1576091160550-2173bdd99602?w=1200', title: 'Solusi Kesehatan Terpercaya Anda' }
   ],
-  aboutContent: 'Kami adalah UMKM yang berfokus pada kualitas dan pelayanan terbaik untuk pelanggan kami.',
+  aboutContent: 'Apotik Sehat Jaya berdedikasi untuk menyediakan obat-obatan berkualitas dan layanan konsultasi kesehatan profesional bagi masyarakat.',
   contactInfo: {
-    email: 'info@tokoanda.com',
-    instagram: '@tokoanda',
+    email: 'kontak@apotiksehatjaya.com',
+    instagram: '@apotiksehatjaya',
     mapsUrl: 'https://goo.gl/maps/example'
   }
 };

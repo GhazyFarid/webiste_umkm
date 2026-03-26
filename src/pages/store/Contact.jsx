@@ -26,7 +26,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">WhatsApp</h3>
-                  <p className="text-slate-500 mb-4 text-sm leading-relaxed">Chat langsung dengan tim kami via WA.</p>
+                  <p className="text-slate-500 mb-4 text-sm leading-relaxed">Konsultasi obat & cek stok via WA.</p>
                   <a href={`https://wa.me/${whatsappNumber}`} className="text-primary font-bold hover:underline">+{whatsappNumber}</a>
                 </div>
               </div>
@@ -37,7 +37,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">Email</h3>
-                  <p className="text-slate-500 mb-4 text-sm leading-relaxed">Kirimkan pertanyaan via email resmi.</p>
+                  <p className="text-slate-500 mb-4 text-sm leading-relaxed">Pemesanan resep atau kerjasama instansi.</p>
                   <a href={`mailto:${contactInfo.email}`} className="text-primary font-bold hover:underline">{contactInfo.email}</a>
                 </div>
               </div>
@@ -48,7 +48,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">Lokasi</h3>
-                  <p className="text-slate-500 mb-4 text-sm leading-relaxed">Kunjungi workshop kami di alamat ini.</p>
+                  <p className="text-slate-500 mb-4 text-sm leading-relaxed">Kunjungi apotik kami di alamat ini.</p>
                   <p className="text-slate-900 font-medium">{address}</p>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0d9488; /* Teal 600 */
-  --color-primary-dark: #115e59; /* Teal 800 */
-  --color-secondary: #f59e0b; /* Amber 500 */
-  --color-accent: #6366f1; /* Indigo 500 */
+  --color-primary: var(--color-emerald-600);
+  --color-primary-dark: var(--color-emerald-700);
+  --color-secondary: var(--color-sky-500);
+  --color-accent: var(--color-rose-500);
   
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;

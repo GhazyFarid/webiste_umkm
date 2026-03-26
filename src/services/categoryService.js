@@ -1,7 +1,9 @@
 const MOCK_CATEGORIES = [
-  { id: '1', name: 'Elektronik' },
-  { id: '2', name: 'Fashion' },
-  { id: '3', name: 'Rumah Tangga' }
+  { id: '1', name: 'Obat Bebas' },
+  { id: '2', name: 'Obat Resep' },
+  { id: '3', name: 'Suplemen & Vitamin' },
+  { id: '4', name: 'Alat Kesehatan' },
+  { id: '5', name: 'Perawatan Tubuh' }
 ];
 
 export const categoryService = {

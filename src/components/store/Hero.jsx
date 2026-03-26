@@ -18,16 +18,16 @@ const Hero = ({ banners }) => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-            Pusat UMKM Terpercaya
+            Apotik & Solusi Kesehatan Terpercaya
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold leading-tight tracking-tight mb-6">
-            Belanja Mudah <br />
-            <span className="text-primary italic">Tanpa Ribet</span> <br />
-            Hanya di Sini!
+            Kesehatan Keluarga <br />
+            <span className="text-primary italic">Adalah Prioritas</span> <br />
+            Kami!
           </h1>
           <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
-            Temukan koleksi produk pilihan berkualitas terbaik untuk kebutuhan harian Anda. 
-            Checkout via WhatsApp, pembayaran aman dan terpercaya.
+            Temukan berbagai jenis obat, vitamin, dan alat kesehatan berkualitas dengan harga terjangkau. 
+            Konsultasi mudah dan belanja aman via WhatsApp.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/store" className="flex items-center gap-3 px-8 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-primary-dark transition-all transform hover:scale-105 shadow-lg shadow-primary/20">
