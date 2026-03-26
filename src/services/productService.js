@@ -16,7 +16,7 @@ const MOCK_PRODUCTS = [
     price: 45000,
     description: 'Suplemen untuk menjaga daya tahan tubuh dan membantu pemulihan.',
     category: 'Suplemen & Vitamin',
-    image: 'https://images.unsplash.com/photo-1616671285410-062e08e614bc?w=500',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500',
     featured: true,
     status: 'publish',
     stock: 50
@@ -27,7 +27,7 @@ const MOCK_PRODUCTS = [
     price: 35000,
     description: 'Antibiotik untuk membantu mengobati berbagai jenis infeksi bakteri. Memerlukan resep dokter.',
     category: 'Obat Resep',
-    image: 'https://images.unsplash.com/photo-1471864190281-ad5fe9bb0724?w=500',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500',
     featured: false,
     status: 'publish',
     stock: 30
