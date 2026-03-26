@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { ShoppingCart, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product, onAddToCart }) => {
   return (
@@ -22,9 +23,12 @@ const ProductCard = ({ product, onAddToCart }) => {
           </span>
         )}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-          <button className="p-3 bg-white rounded-full hover:bg-primary hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-300">
+          <Link 
+            to={`/product/${product.id}`}
+            className="p-3 bg-white rounded-full hover:bg-primary hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-300"
+          >
             <Eye size={20} />
-          </button>
+          </Link>
         </div>
       </div>
       
