@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Plus, Edit, Trash2, X, Save, Tag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-// In a real app, we'd have async thunks for categories too. 
-// For this demo, we'll use simple actions or mock the behavior.
+import { addCategory, updateCategory, deleteCategory } from '../../store/slices/categorySlice';
+import ConfirmModal from '../../components/common/ConfirmModal';
 
 const Categories = () => {
+  const dispatch = useDispatch();
   const { items: categories } = useSelector(state => state.categories);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [categoryToDelete, setCategoryToDelete] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [categoryName, setCategoryName] = useState('');
 
@@ -25,9 +28,24 @@ const Categories = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Implementation for Demo
-    alert('Fitur Simpan Kategori Berhasil (Mock)');
+    if (editingId) {
+      dispatch(updateCategory({ id: editingId, data: { name: categoryName } }));
+    } else {
+      dispatch(addCategory({ name: categoryName }));
+    }
     setIsModalOpen(false);
+  };
+
+  const handleDeleteClick = (category) => {
+    setCategoryToDelete(category);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (categoryToDelete) {
+      dispatch(deleteCategory(categoryToDelete.id));
+      setCategoryToDelete(null);
+    }
   };
 
   return (
@@ -67,7 +85,10 @@ const Categories = () => {
               >
                 <Edit size={18} />
               </button>
-              <button className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all">
+              <button 
+                onClick={() => handleDeleteClick(category)}
+                className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
+              >
                 <Trash2 size={18} />
               </button>
             </div>
@@ -132,6 +153,13 @@ const Categories = () => {
           </div>
         )}
       </AnimatePresence>
+      <ConfirmModal 
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={handleDeleteConfirm}
+        title="Hapus Kategori"
+        message={`Apakah Anda yakin ingin menghapus kategori "${categoryToDelete?.name}"? Produk dalam kategori ini akan kehilangan kategorinya.`}
+      />
     </div>
   );
 };

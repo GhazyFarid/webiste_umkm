@@ -4,6 +4,7 @@ import { fetchProducts, addProduct, updateProduct, deleteProduct } from '../../s
 import { fetchCategories } from '../../store/slices/categorySlice';
 import { Plus, Edit, Trash2, Search, ExternalLink, X, Upload, Save, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ConfirmModal from '../../components/common/ConfirmModal';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,8 @@ const Products = () => {
   
   const [searchQuery, setSearchQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [productToDelete, setProductToDelete] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -75,9 +78,15 @@ const Products = () => {
     setIsModalOpen(false);
   };
 
-  const handleDelete = (id) => {
-    if (window.confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
-      dispatch(deleteProduct(id));
+  const handleDeleteClick = (product) => {
+    setProductToDelete(product);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (productToDelete) {
+      dispatch(deleteProduct(productToDelete.id));
+      setProductToDelete(null);
     }
   };
 
@@ -172,7 +181,7 @@ const Products = () => {
                         <Edit size={18} />
                       </button>
                       <button 
-                        onClick={() => handleDelete(product.id)}
+                        onClick={() => handleDeleteClick(product)}
                         className="p-2.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
                       >
                         <Trash2 size={18} />
@@ -342,6 +351,13 @@ const Products = () => {
           </div>
         )}
       </AnimatePresence>
+      <ConfirmModal 
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={handleDeleteConfirm}
+        title="Hapus Produk"
+        message={`Apakah Anda yakin ingin menghapus produk "${productToDelete?.name}"? Tindakan ini tidak dapat dibatalkan.`}
+      />
     </div>
   );
 };
