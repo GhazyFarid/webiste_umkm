@@ -14,7 +14,7 @@ export const formatWhatsAppMessage = (storeInfo, cartItems, customerInfo) => {
   const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
   
   let message = `*PESANAN BARU - ${orderId}*\n\n`;
-  message += `Halo ${storeInfo.name}, saya ingin memesan produk berikut:\n\n`;
+  message += `Halo ${storeInfo.storeName}, saya ingin memesan produk berikut:\n\n`;
   
   cartItems.forEach((item, index) => {
     message += `${index + 1}. ${item.name} x ${item.quantity}\n`;
