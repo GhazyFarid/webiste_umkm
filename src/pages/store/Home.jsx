@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../store/slices/productSlice';
 import { addToCart } from '../../store/slices/cartSlice';
 import Hero from '../../components/store/Hero';
 import ProductCard from '../../components/store/ProductCard';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageSquareMore, ClipboardCheck, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   const dispatch = useDispatch();
   const { items: products, loading: pLoading } = useSelector(state => state.products);
-  const { banners } = useSelector(state => state.settings);
+  const { banners, whatsappNumber } = useSelector(state => state.settings);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -26,6 +27,61 @@ const Home = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
       <Hero banners={banners} />
+
+      {/* Services Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-6">Layanan Farmasi Unggulan</h2>
+            <p className="text-slate-500 text-lg">Kami memberikan lebih dari sekadar obat. Kami memberikan solusi kesehatan yang menyeluruh dan terpercaya.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Konsultasi Gratis',
+                desc: 'Tanya jawab langsung dengan apoteker kami melalui WhatsApp.',
+                icon: <MessageSquareMore size={32} />,
+                color: 'bg-teal-500',
+                link: `https://wa.me/${whatsappNumber}`
+              },
+              {
+                title: 'Tebus Resep',
+                desc: 'Upload foto resep Anda dan kami akan siapkan obatnya segera.',
+                icon: <ClipboardCheck size={32} />,
+                color: 'bg-emerald-500',
+                link: '/contact'
+              },
+              {
+                title: 'Cek Kesehatan',
+                desc: 'Layanan cek tensi, gula darah, dan kolesterol di outlet kami.',
+                icon: <Activity size={32} />,
+                color: 'bg-sky-500',
+                link: '/about'
+              }
+            ].map((service, i) => (
+              <motion.a
+                key={i}
+                href={service.link}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group p-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+              >
+                <div className={`${service.color} w-16 h-16 rounded-2xl flex items-center justify-center text-white mb-6 transform group-hover:rotate-6 transition-transform shadow-lg`}>
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                <p className="text-slate-500 leading-relaxed mb-6">{service.desc}</p>
+                {/* <div className="flex items-center gap-2 text-primary font-bold">
+                  Pelajari Lebih Lanjut <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+                </div> */}
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Featured Products */}
       {featuredProducts.length > 0 && (
