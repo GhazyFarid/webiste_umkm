@@ -91,21 +91,21 @@ const Products = () => {
   };
 
   return (
-    <div className="space-y-8">
-      <header className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div className="space-y-6 lg:space-y-8">
+      <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 md:gap-6">
         <div>
-          <h1 className="text-4xl font-display font-bold text-slate-900 mb-2">Kelola Produk</h1>
-          <nav className="flex items-center gap-2 text-sm text-slate-400 font-medium">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-slate-900 mb-1 md:mb-2">Kelola Produk</h1>
+          <nav className="flex items-center gap-2 text-[10px] md:text-sm text-slate-400 font-medium font-bold uppercase tracking-wider md:normal-case md:tracking-normal">
             <span>Admin</span>
-            <ChevronRight size={14} />
-            <span className="text-primary">Produk</span>
+            <ChevronRight size={12} className="md:size-3.5" />
+            <span className="text-primary font-bold">Produk</span>
           </nav>
         </div>
         <button 
           onClick={handleOpenAdd}
-          className="flex items-center gap-3 px-8 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 self-start"
+          className="flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3.5 md:py-4 bg-primary text-white font-bold rounded-xl md:rounded-2xl hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 w-full sm:w-auto text-sm md:text-base"
         >
-          <Plus size={20} />
+          <Plus size={18} className="md:size-5" />
           Tambah Produk
         </button>
       </header>
@@ -113,78 +113,78 @@ const Products = () => {
       {/* Control Bar */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-grow">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 size-[18px] md:size-5" />
           <input 
             type="text" 
-            placeholder="Cari berdasarkan nama atau kategori..."
-            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-100 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary outline-none transition-all"
+            placeholder="Cari nama atau kategori..."
+            className="w-full pl-10 md:pl-12 pr-4 py-3.5 md:py-4 bg-white border border-slate-100 rounded-xl md:rounded-2xl shadow-sm focus:ring-2 focus:ring-primary outline-none transition-all text-sm md:text-base"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
       </div>
 
-      {/* Table */}
-      <div className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left">
+      {/* Table Container */}
+      <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+        <div className="overflow-x-auto scrollbar-hide">
+          <table className="w-full text-left min-w-[800px] lg:min-w-full">
             <thead className="bg-slate-50 border-b border-slate-100">
               <tr>
-                <th className="px-8 py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Info Produk</th>
-                <th className="px-8 py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Kategori</th>
-                <th className="px-8 py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Harga</th>
-                <th className="px-8 py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Status</th>
-                <th className="px-8 py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Aksi</th>
+                <th className="px-4 md:px-8 py-4 md:py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Info Produk</th>
+                <th className="px-4 md:px-8 py-4 md:py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Kategori</th>
+                <th className="px-4 md:px-8 py-4 md:py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Harga</th>
+                <th className="px-4 md:px-8 py-4 md:py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400">Status</th>
+                <th className="px-4 md:px-8 py-4 md:py-5 text-[10px] uppercase tracking-widest font-bold text-slate-400 text-right">Aksi</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50">
               {loading ? (
                 Array(5).fill(0).map((_, i) => (
                   <tr key={i} className="animate-pulse">
-                    <td colSpan="5" className="px-8 py-6 h-16 bg-white"></td>
+                    <td colSpan="5" className="px-4 md:px-8 py-4 md:py-6 h-16 bg-white"></td>
                   </tr>
                 ))
               ) : filteredProducts.map((product) => (
                 <tr key={product.id} className="hover:bg-slate-50/50 transition-colors group">
-                  <td className="px-8 py-5">
-                    <div className="flex items-center gap-4">
-                      <img src={product.image} alt={product.name} className="w-14 h-14 rounded-xl object-cover" />
-                      <div>
-                        <h4 className="font-bold text-slate-900 group-hover:text-primary transition-colors">{product.name}</h4>
-                        <div className="flex items-center gap-2 mt-1">
-                          {product.featured && <span className="text-[10px] bg-secondary/10 text-secondary font-bold px-1.5 py-0.5 rounded uppercase">Featured</span>}
-                          <span className="text-xs text-slate-400">Stok: {product.stock}</span>
+                  <td className="px-4 md:px-8 py-4 md:py-5">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <img src={product.image} alt={product.name} className="w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl object-cover shrink-0" />
+                      <div className="min-w-0">
+                        <h4 className="font-bold text-slate-900 group-hover:text-primary transition-colors text-sm md:text-base truncate">{product.name}</h4>
+                        <div className="flex items-center gap-2 mt-0.5 md:mt-1">
+                          {product.featured && <span className="text-[8px] md:text-[10px] bg-secondary/10 text-secondary font-bold px-1 py-0.5 rounded uppercase shrink-0">Featured</span>}
+                          <span className="text-[10px] md:text-xs text-slate-400">Stok: {product.stock}</span>
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td className="px-8 py-5">
-                    <span className="text-sm font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-lg">{product.category}</span>
+                  <td className="px-4 md:px-8 py-4 md:py-5">
+                    <span className="text-[10px] md:text-sm font-medium text-slate-600 bg-slate-100 px-2 py-1 md:px-3 md:py-1.5 rounded-lg">{product.category}</span>
                   </td>
-                  <td className="px-8 py-5">
-                    <span className="font-bold text-slate-900 uppercase">Rp {product.price.toLocaleString('id-ID')}</span>
+                  <td className="px-4 md:px-8 py-4 md:py-5">
+                    <span className="font-bold text-slate-900 text-sm md:text-base whitespace-nowrap">Rp {product.price.toLocaleString('id-ID')}</span>
                   </td>
-                  <td className="px-8 py-5">
+                  <td className="px-4 md:px-8 py-4 md:py-5">
                     <div className="flex items-center gap-2">
-                       <span className={`w-2 h-2 rounded-full ${product.status === 'publish' ? 'bg-emerald-500' : 'bg-slate-300'}`} />
-                       <span className={`text-xs font-bold uppercase tracking-wider ${product.status === 'publish' ? 'text-emerald-600' : 'text-slate-400'}`}>
+                       <span className={`w-1.5 h-1.5 rounded-full ${product.status === 'publish' ? 'bg-emerald-500' : 'bg-slate-300'}`} />
+                       <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider ${product.status === 'publish' ? 'text-emerald-600' : 'text-slate-400'}`}>
                          {product.status}
                        </span>
                     </div>
                   </td>
-                  <td className="px-8 py-5">
-                    <div className="flex items-center gap-2">
+                  <td className="px-4 md:px-8 py-4 md:py-5">
+                    <div className="flex items-center justify-end gap-1 md:gap-2">
                       <button 
                         onClick={() => handleOpenEdit(product)}
-                        className="p-2.5 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-xl transition-all"
+                        className="p-2 md:p-2.5 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-all"
                       >
-                        <Edit size={18} />
+                        <Edit size={16} className="md:size-[18px]" />
                       </button>
                       <button 
                         onClick={() => handleDeleteClick(product)}
-                        className="p-2.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
+                        className="p-2 md:p-2.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
                       >
-                        <Trash2 size={18} />
+                        <Trash2 size={16} className="md:size-[18px]" />
                       </button>
                     </div>
                   </td>

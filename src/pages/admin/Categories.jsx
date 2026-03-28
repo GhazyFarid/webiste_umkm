@@ -49,47 +49,47 @@ const Categories = () => {
   };
 
   return (
-    <div className="space-y-8">
-      <header className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div className="space-y-6 lg:space-y-8">
+      <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 md:gap-6">
         <div>
-          <h1 className="text-4xl font-display font-bold text-slate-900 mb-2">Kelola Kategori</h1>
-          <p className="text-slate-500 font-medium">Atur kategori untuk mengelompokkan produk Anda.</p>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-slate-900 mb-1 md:mb-2">Kelola Kategori</h1>
+          <p className="text-sm md:text-base text-slate-500 font-medium">Atur kategori untuk mengelompokkan produk Anda.</p>
         </div>
         <button 
           onClick={handleOpenAdd}
-          className="flex items-center gap-3 px-8 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 self-start"
+          className="flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3.5 md:py-4 bg-primary text-white font-bold rounded-xl md:rounded-2xl hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 w-full sm:w-auto text-sm md:text-base"
         >
-          <Plus size={20} />
+          <Plus size={18} className="md:size-5" />
           Tambah Kategori
         </button>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {categories.map((category) => (
           <motion.div
             key={category.id}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex items-center justify-between group hover:border-primary/30 transition-all"
+            className="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm flex items-center justify-between group hover:border-primary/30 transition-all"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-slate-50 text-slate-400 group-hover:bg-primary/10 group-hover:text-primary rounded-2xl flex items-center justify-center transition-colors">
-                <Tag size={20} />
+            <div className="flex items-center gap-3 md:gap-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-slate-50 text-slate-400 group-hover:bg-primary/10 group-hover:text-primary rounded-xl md:rounded-2xl flex items-center justify-center transition-colors">
+                <Tag size={18} className="md:size-5" />
               </div>
-              <h3 className="font-bold text-slate-900 text-lg">{category.name}</h3>
+              <h3 className="font-bold text-slate-900 text-base md:text-lg">{category.name}</h3>
             </div>
-            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-1 md:gap-2 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
               <button 
                 onClick={() => handleOpenEdit(category)}
                 className="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-all"
               >
-                <Edit size={18} />
+                <Edit size={16} className="md:size-[18px]" />
               </button>
               <button 
                 onClick={() => handleDeleteClick(category)}
                 className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
               >
-                <Trash2 size={18} />
+                <Trash2 size={16} className="md:size-[18px]" />
               </button>
             </div>
           </motion.div>
