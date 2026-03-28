@@ -106,7 +106,7 @@ const Hero = ({ banners = [] }) => {
                 Mulai Belanja <ShoppingBag size={18} />
               </Link>
               <Link
-                to="/about"
+                to="/contact"
                 className="flex items-center gap-2.5 px-6 py-3.5 md:px-8 md:py-4
                   bg-white text-slate-900 border border-slate-200 font-bold rounded-2xl
                   hover:bg-slate-50 transition-all text-sm md:text-base"
