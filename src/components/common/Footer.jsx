@@ -31,8 +31,8 @@ const Footer = () => {
             <h4 className="text-lg font-bold text-white">Layanan & Bantuan</h4>
             <ul className="space-y-3 text-sm">
               <li><a href="/store" className="hover:text-primary transition-colors">Cari Obat</a></li>
-              <li><a href="/contact" className="hover:text-primary transition-colors">Tebus Resep</a></li>
               <li><a href="/contact" className="hover:text-primary transition-colors">Konsultasi Apoteker</a></li>
+              <li><a href="/faq" className="hover:text-primary transition-colors">Cara Pemesanan</a></li>
               <li><a href="/about" className="hover:text-primary transition-colors">Tentang Kami</a></li>
             </ul>
           </div>

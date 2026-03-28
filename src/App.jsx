@@ -4,6 +4,7 @@ import Store from './pages/store/Store';
 import Cart from './pages/store/Cart';
 import About from './pages/store/About';
 import Contact from './pages/store/Contact';
+import FAQ from './pages/store/FAQ';
 import ProductDetail from './pages/store/ProductDetail';
 import Login from './pages/admin/Login';
 import AdminLayout from './components/admin/AdminLayout';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Route>
         

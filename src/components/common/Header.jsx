@@ -9,6 +9,7 @@ const navLinks = [
   { to: '/store',   label: 'Katalog Obat' },
   { to: '/about',   label: 'Profil' },
   { to: '/contact', label: 'Kontak' },
+  { to: '/faq',     label: 'FAQ' },
 ];
 
 const Header = () => {
