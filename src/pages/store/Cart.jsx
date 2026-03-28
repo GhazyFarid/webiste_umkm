@@ -1,9 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateQuantity, clearCart } from '../../store/slices/cartSlice';
+import { removeFromCart, updateQuantity } from '../../store/slices/cartSlice';
 import { Trash2, Minus, Plus, ShoppingBag, ArrowRight, MessageSquareCode } from 'lucide-react';
 import { formatWhatsAppMessage, redirectToWhatsApp } from '../../utils/whatsapp';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -156,10 +155,10 @@ const Cart = () => {
                   <span>Subtotal</span>
                   <span>Rp {total.toLocaleString('id-ID')}</span>
                 </div>
-                <div className="flex justify-between text-slate-500">
+                {/* <div className="flex justify-between text-slate-500">
                   <span>Ongkos Kirim</span>
                   <span className="italic">Dihitung otomatis</span>
-                </div>
+                </div> */}
                 <div className="pt-4 border-t border-slate-100 flex justify-between items-center">
                   <span className="font-bold text-slate-900 border-l-4 border-primary pl-3">Total Tagihan</span>
                   <span className="text-2xl font-display font-bold text-primary">Rp {total.toLocaleString('id-ID')}</span>
